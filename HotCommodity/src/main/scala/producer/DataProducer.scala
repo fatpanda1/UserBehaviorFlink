@@ -18,7 +18,8 @@ object DataProducer {
   private val topic = "Flink_UserBehavior"
 
   def main(args: Array[String]): Unit = {
-    val file = Source.fromFile("D:\\learning\\bigData\\flinkUserData\\UserBehavior.csv")
+    val resource = getClass.getResource("/UserBehavior.csv")
+    val file = Source.fromFile(resource.getPath)
 
     val producer = new KafkaProducer[String,String](props)
 
